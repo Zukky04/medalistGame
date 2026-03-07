@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>メダリスト検定 〜目指せ金メダル！〜</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- タイトル画面 -->
+    <section id="title-screen" class="screen active">
+      <div class="content-wrapper">
+        <h1 class="title">メダリスト検定<br><span class="subtitle">〜目指せ金メダル！〜</span></h1>
+        <p class="description">フィギュアスケート漫画『メダリスト』の知識を試す4択クイズゲーム！<br>TES（正解数）とPCS（タイムボーナス）で高得点を狙おう！</p>
+        <button id="start-btn" class="btn primary-btn">ゲームスタート</button>
+      </div>
+    </section>
+
+    <!-- 難易度選択画面 -->
+    <section id="difficulty-screen" class="screen">
+      <div class="content-wrapper">
+        <h2>難易度を選択してください</h2>
+        <div class="difficulty-buttons">
+          <button class="btn diff-btn" data-diff="novice">
+            <span class="diff-title">ノービス（初級）</span>
+            <span class="diff-desc">キャラクター名や基本ルールなど</span>
+          </button>
+          <button class="btn diff-btn" data-diff="junior">
+            <span class="diff-title">ジュニア（中級）</span>
+            <span class="diff-desc">ストーリー展開、名セリフなど</span>
+          </button>
+          <button class="btn diff-btn" data-diff="senior">
+            <span class="diff-title">シニア（上級）</span>
+            <span class="diff-desc">コアな小ネタ、聖地巡礼情報など</span>
+          </button>
+        </div>
+        <button id="back-to-title-btn" class="btn secondary-btn mt-4">タイトルへ戻る</button>
+      </div>
+    </section>
+
+    <!-- クイズプレイ画面 -->
+    <section id="quiz-screen" class="screen">
+      <div class="quiz-header">
+        <div class="status-bar">
+          <span id="question-counter">Q. 1 / 10</span>
+          <span id="current-difficulty" class="badge">ノービス</span>
+        </div>
+        <div class="timer-container">
+          <div id="timer-bar" class="timer-bar"></div>
+        </div>
+      </div>
+      <div class="question-container">
+        <h3 id="question-text">ここに問題文が表示されます。ここに問題文が表示されます。</h3>
+      </div>
+      <div id="options-container" class="options-container">
+        <button class="btn option-btn">選択肢1</button>
+        <button class="btn option-btn">選択肢2</button>
+        <button class="btn option-btn">選択肢3</button>
+        <button class="btn option-btn">選択肢4</button>
+      </div>
+    </section>
+
+    <!-- リザルト画面 -->
+    <section id="result-screen" class="screen">
+      <div class="content-wrapper">
+        <h2>リザルト</h2>
+        <div class="medal-container">
+          <!-- メダル画像はCSS等で装飾するか、後で画像を配置します -->
+          <div id="medal-image" class="medal gold-medal"></div>
+          <h3 id="rank-text">金メダル（Sランク）</h3>
+        </div>
+        <div class="score-board">
+          <div class="score-row total-score">
+            <span>総合得点</span>
+            <span id="total-score-text">145.50</span>
+          </div>
+          <div class="score-details">
+            <div class="score-row">
+              <span>TES (技術点)</span>
+              <span id="tes-score-text">100.00</span>
+            </div>
+            <div class="score-row">
+              <span>PCS (演技構成点)</span>
+              <span id="pcs-score-text">45.50</span>
+            </div>
+            <div class="score-row">
+              <span>正解数</span>
+              <span id="correct-count-text">10 / 10</span>
+            </div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button id="share-btn" class="btn share-btn">𝕏 で結果をシェア</button>
+          <button id="retry-btn" class="btn primary-btn mt-3">もう一度プレイ</button>
+          <button id="title-return-btn" class="btn secondary-btn mt-2">タイトルへ戻る</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/questions.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
