@@ -38,7 +38,6 @@ const dom = {
     pcsScoreText: document.getElementById('pcs-score-text'),
     correctCountText: document.getElementById('correct-count-text'),
 
-    shareBtn: document.getElementById('share-btn'),
     retryBtn: document.getElementById('retry-btn'),
     titleReturnBtn: document.getElementById('title-return-btn')
 };
@@ -61,7 +60,6 @@ function init() {
     // Result Screen
     dom.retryBtn.addEventListener('click', () => showScreen('difficulty'));
     dom.titleReturnBtn.addEventListener('click', () => showScreen('title'));
-    dom.shareBtn.addEventListener('click', shareToX);
 
     showScreen('title');
 }
@@ -227,22 +225,6 @@ function showResult() {
     dom.rankText.textContent = rankStr;
 
     showScreen('result');
-}
-
-// === Share to X (Twitter) ===
-function shareToX() {
-    const totalScore = (scoreTES + scorePCS).toFixed(2);
-    const diffNames = { novice: 'ノービス', junior: 'ジュニア', senior: 'シニア' };
-    const diffText = diffNames[currentDifficulty];
-
-    const text = `メダリスト検定（難易度：${diffText}）で『${dom.rankText.textContent}』を達成！\n総合スコア：${totalScore}点 (TES: ${scoreTES.toFixed(2)} / PCS: ${scorePCS.toFixed(2)})\n\n`;
-    const hashtags = 'メダリスト検定,漫画メダリスト,目指せ金メダル';
-    // 実際にはデプロイ先のURLを指定
-    const url = 'https://zukky.github.io/medalistGame';
-
-    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
-
-    window.open(shareUrl, '_blank');
 }
 
 // Initialize the app when DOM is loaded
